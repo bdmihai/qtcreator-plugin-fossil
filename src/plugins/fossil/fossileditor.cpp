@@ -90,11 +90,11 @@ FossilEditorWidget::~FossilEditorWidget()
 
 bool FossilEditorWidget::setConfigurationWidget(VcsBase::VcsBaseEditorConfig *w)
 {
-    if (configurationAdded())
+    if (editorConfig())
         return false;
 
     d->m_configurationWidget = w;
-    setConfigurationAdded();
+    setEditorConfig(w);
     return true;
 }
 

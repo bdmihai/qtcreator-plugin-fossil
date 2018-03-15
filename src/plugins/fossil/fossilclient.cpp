@@ -745,7 +745,7 @@ VcsBase::VcsBaseEditorWidget *FossilClient::annotate(
     auto *fossilEditor = qobject_cast<FossilEditorWidget *>(editor);
     QTC_ASSERT(fossilEditor, return editor);
 
-    if (!fossilEditor->configurationAdded()) {
+    if (!fossilEditor->editorConfig()) {
         if (VcsBase::VcsBaseEditorConfig *editorConfig = createAnnotateEditor(fossilEditor)) {
             editorConfig->setBaseArguments(extraOptions);
             // editor has been just created, createVcsEditor() didn't set a configuration widget yet
@@ -961,7 +961,7 @@ void FossilClient::log(const QString &workingDir, const QStringList &files,
 
     fossilEditor->setFileLogAnnotateEnabled(enableAnnotationContextMenu);
 
-    if (!fossilEditor->configurationAdded()) {
+    if (!fossilEditor->editorConfig()) {
         if (VcsBase::VcsBaseEditorConfig *editorConfig = createLogEditor(fossilEditor)) {
             editorConfig->setBaseArguments(extraOptions);
             // editor has been just created, createVcsEditor() didn't set a configuration widget yet
@@ -1013,7 +1013,7 @@ void FossilClient::logCurrentFile(const QString &workingDir, const QStringList &
 
     fossilEditor->setFileLogAnnotateEnabled(enableAnnotationContextMenu);
 
-    if (!fossilEditor->configurationAdded()) {
+    if (!fossilEditor->editorConfig()) {
         if (VcsBase::VcsBaseEditorConfig *editorConfig = createLogEditor(fossilEditor)) {
             editorConfig->setBaseArguments(extraOptions);
             // editor has been just created, createVcsEditor() didn't set a configuration widget yet
